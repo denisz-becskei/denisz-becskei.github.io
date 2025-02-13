@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/gustyff-the-dev/static/css/main.a0fa4663.css",
+    "main.js": "/gustyff-the-dev/static/js/main.dc0b6892.js",
+    "index.html": "/gustyff-the-dev/index.html",
+    "main.a0fa4663.css.map": "/gustyff-the-dev/static/css/main.a0fa4663.css.map",
+    "main.dc0b6892.js.map": "/gustyff-the-dev/static/js/main.dc0b6892.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a0fa4663.css",
+    "static/js/main.dc0b6892.js"
+  ]
+}
