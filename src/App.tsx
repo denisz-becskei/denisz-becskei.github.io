@@ -11,7 +11,7 @@ const App: React.FC = () => {
       <div className="App">
         <Header />
         {/* Add top padding to account for the fixed header */}
-        <main className="pt-20">
+        <main>
           <About />
           <Projects />
           <Contact />

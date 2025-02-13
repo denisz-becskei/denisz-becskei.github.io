@@ -24,7 +24,7 @@ const StyledWrapper = styled.div`
     font-size: 26px;
     font-weight: 700;
     white-space: nowrap;
-    background: linear-gradient(to right,#2f00ff, #155799);
+    background: linear-gradient(to right,#A855F7, #155799);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
