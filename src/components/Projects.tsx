@@ -98,10 +98,16 @@ const Projects: React.FC = () => {
                     {projects.map((project) => (
                         <motion.div
                             key={project.id}
-                            initial={{opacity: 0, y: 20}}
-                            whileInView={{opacity: 1, y: 0}}
-                            viewport={{once: true}}
-                            transition={{delay: project.id * 0.2}}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            whileHover={{ scale: 1.05 }}
+                            viewport={{ once: true }}
+                            transition={{
+                                delay: project.id * 0.2,
+                                type: "spring",
+                                stiffness: 300,
+                                damping: 20,
+                            }}
                             className="card bg-base-200 shadow-md"
                         >
                             <div className="card-body">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
@@ -9,18 +9,18 @@ interface Skill {
 }
 
 const skills: Skill[] = [
-    { id: 1, concept: "Angular", experience: 4 },
-    { id: 2, concept: "TypeScript", experience: 4 },
-    { id: 3, concept: "Java", experience: 5 },
-    { id: 4, concept: "Spring Boot", experience: 4 },
-    { id: 5, concept: "HTML/SCSS", experience: 5 },
-    { id: 6, concept: "C#", experience: 4 },
-    { id: 7, concept: "Unity", experience: 4 },
-    { id: 8, concept: "Python", experience: 4 },
-    { id: 9, concept: "PostgreSQL", experience: 4 },
-    { id: 10, concept: "Docker", experience: 1 },
-    { id: 11, concept: "React", experience: 1 },
-    { id: 12, concept: "Node.js Express", experience: 1 },
+    { id: 1, concept: "Angular", experience: 2021 },
+    { id: 2, concept: "TypeScript", experience: 2021 },
+    { id: 3, concept: "Java", experience: 2020 },
+    { id: 4, concept: "Spring Boot", experience: 2021 },
+    { id: 5, concept: "HTML/SCSS", experience: 2020 },
+    { id: 6, concept: "C#", experience: 2021 },
+    { id: 7, concept: "Unity", experience: 2021 },
+    { id: 8, concept: "Python", experience: 2021 },
+    { id: 9, concept: "PostgreSQL", experience: 2021 },
+    { id: 10, concept: "Docker", experience: 2023 },
+    { id: 11, concept: "React", experience: 2024 },
+    { id: 12, concept: "Node.js Express", experience: 2024 },
 ];
 
 const StyledWrapper = styled.div`
@@ -32,6 +32,12 @@ const StyledWrapper = styled.div`
   }`;
 
 const About: React.FC = () => {
+    const [currentYear, setCurrentYear] = React.useState(2025);
+
+    useEffect(() => {
+        setCurrentYear(new Date().getFullYear());
+    }, []);
+
     return (
         <StyledWrapper>
             <section id="about" className="min-h-screen flex flex-col items-center bg-base-200 pt-20 pb-10">
@@ -70,14 +76,20 @@ const About: React.FC = () => {
                                 key={skill.id}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
+                                whileHover={{ scale: 1.05 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: skill.id * 0.2 }}
+                                transition={{
+                                    delay: skill.id * 0.2,
+                                    type: "spring",
+                                    stiffness: 300,
+                                    damping: 20,
+                                }}
                                 className="card bg-base-100 shadow-md hover:shadow-xl transition-shadow"
                             >
                                 <div className="card-body">
                                     <h4 className="card-title expertise-title">{skill.concept}</h4>
                                     <p className="text-white">
-                                        {skill.experience} {skill.experience === 1 ? "year" : "years"} experience
+                                        {currentYear - skill.experience} {(currentYear - skill.experience) === 1 ? "year" : "years"} experience
                                     </p>
                                 </div>
                             </motion.div>
