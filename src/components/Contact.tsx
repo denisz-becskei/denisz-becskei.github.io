@@ -1,32 +1,40 @@
-// src/components/Contact.tsx
 import React, { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact: React.FC = () => {
-    // Handle form submission and send email using EmailJS
+    const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+
+    const handleCaptchaChange = (value: string | null) => {
+        setCaptchaToken(value);
+    };
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        // Send email via EmailJS
+        if (!captchaToken) {
+            alert("Please complete the captcha before submitting.");
+            return;
+        }
+
         emailjs
             .sendForm(
-                "gustyff_the_dev",    // Replace with your EmailJS Service ID
-                "template_fge55ls",   // Replace with your EmailJS Template ID
+                "gustyff_the_dev",
+                "template_fge55ls",
                 e.currentTarget,
-                "MO2j1JRZ6gibLwJU6"     // Replace with your EmailJS Public Key (or User ID)
+                "MO2j1JRZ6gibLwJU6"
             )
             .then(
                 (result) => {
                     console.log(result.text);
                     alert("Message sent successfully!");
-                    // Optionally, reset the form or captcha here if needed
                 },
                 (error) => {
                     console.error(error.text);
                     alert("An error occurred, please try again later.");
                 }
             );
+        setCaptchaToken(null);
     };
 
     return (
@@ -75,8 +83,14 @@ const Contact: React.FC = () => {
                                 required
                             ></textarea>
                         </div>
+                        <div className="form-control mt-4 flex items-center justify-end">
+                            <ReCAPTCHA
+                                sitekey="6Lds-NYqAAAAAOeAKDm403Lt9zFChIinpuhHd2S0"
+                                onChange={handleCaptchaChange}
+                            />
+                        </div>
                         <div className="form-control mt-6">
-                            <button type="submit" className="btn btn-primary">
+                            <button type="submit" disabled={!captchaToken} className="btn btn-primary">
                                 Send Message
                             </button>
                         </div>

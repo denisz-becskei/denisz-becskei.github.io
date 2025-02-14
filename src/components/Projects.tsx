@@ -1,6 +1,5 @@
-// src/components/Projects.tsx
 import React from "react";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 
 interface Project {
     id: number;
@@ -99,10 +98,10 @@ const Projects: React.FC = () => {
                     {projects.map((project) => (
                         <motion.div
                             key={project.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: project.id * 0.2 }}
+                            initial={{opacity: 0, y: 20}}
+                            whileInView={{opacity: 1, y: 0}}
+                            viewport={{once: true}}
+                            transition={{delay: project.id * 0.2}}
                             className="card bg-base-200 shadow-md"
                         >
                             <div className="card-body">
@@ -112,8 +111,8 @@ const Projects: React.FC = () => {
                                 <div className="flex flex-wrap gap-2 mt-2">
                                     {project.tags.map((tag, idx) => (
                                         <span key={idx} className="badge badge-outline">
-                      {tag}
-                    </span>
+                                          {tag}
+                                        </span>
                                     ))}
                                 </div>
                                 {project.githubLink && (

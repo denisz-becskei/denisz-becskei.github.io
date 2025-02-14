@@ -1,4 +1,3 @@
-// src/App.tsx
 import React from "react";
 import Header from "./components/Header";
 import About from "./components/About";
@@ -10,7 +9,6 @@ const App: React.FC = () => {
   return (
       <div className="App">
         <Header />
-        {/* Add top padding to account for the fixed header */}
         <main>
           <About />
           <Projects />

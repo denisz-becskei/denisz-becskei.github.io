@@ -1,4 +1,3 @@
-// src/components/Header.tsx
 import React from "react";
 import TitleLoader from "./TitleLoader";
 
@@ -26,7 +25,6 @@ const Header: React.FC = () => {
                         </a>
                     </li>
                 </ul>
-                {/* Mobile Navigation: Hamburger Menu */}
                 <div className="dropdown dropdown-end lg:hidden">
                     <label tabIndex={0} className="btn btn-ghost text-white">
                         <svg

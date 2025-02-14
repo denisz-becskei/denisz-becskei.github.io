@@ -1,9 +1,7 @@
-// src/components/About.tsx
 import React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-// Define your expertise items
 interface Skill {
     id: number;
     concept: string;
@@ -37,7 +35,6 @@ const About: React.FC = () => {
     return (
         <StyledWrapper>
             <section id="about" className="min-h-screen flex flex-col items-center bg-base-200 pt-20 pb-10">
-                {/* About Me Card with Avatar */}
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -45,7 +42,6 @@ const About: React.FC = () => {
                     className="card w-full max-w-3xl bg-base-100 shadow-xl mb-8"
                 >
                     <div className="card-body flex flex-col md:flex-row items-center">
-                        {/* Text Section */}
                         <div className="flex-1">
                             <h2 className="card-title text-white">About Me</h2>
                             <p className="text-white">
@@ -56,11 +52,9 @@ const About: React.FC = () => {
                                 In my free time, I'm accepting freelance jobs with mostly creating full-stack web applications.
                             </p>
                         </div>
-                        {/* Avatar Section */}
                         <div className="flex-shrink-0 mt-4 md:mt-0 md:ml-6">
                             <div className="avatar">
                                 <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                    {/* Replace the URL below with your actual avatar image */}
                                     <img src="WJ0Z5RCQ.jpg" alt="Avatar of Gustyff" />
                                 </div>
                             </div>
@@ -68,7 +62,6 @@ const About: React.FC = () => {
                     </div>
                 </motion.div>
 
-                {/* Expertise Section */}
                 <div className="container mx-auto px-4">
                     <h3 className="text-2xl font-bold text-white mb-4">Expertise</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
