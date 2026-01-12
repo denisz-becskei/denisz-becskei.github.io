@@ -136,7 +136,7 @@ const projects: Project[] = [
     description: "A horror game created for the Brackey's Game Jam 2025.2 for the theme: 'Risk it for the Biscuit'.",
     tags: ["Unity", "C#"],
     isOrder: false,
-    url: "https://gustyff.itch.io/dont-become-dessert"
+    url: "https://gustyff.itch.io/dont-become-dessert",
   }
 ];
 
