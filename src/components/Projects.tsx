@@ -7,6 +7,7 @@ interface Project {
   title: string;
   description: string;
   githubLink?: string;
+  url?: string;
   tags: string[];
   isOrder: boolean;
 }
@@ -122,6 +123,21 @@ const projects: Project[] = [
     tags: ["React", "Node.js Express", "MongoDB", "Docker", "Ollama"],
     isOrder: false,
   },
+  {
+    id: 16,
+    title: "Narrative",
+    description: "A web application for generating changelogs based on git commits for repositories. The application supports GitHub, Bitbucket and GitLab instances. Automatons can be created which watch a certain branch in a Git repository and automatically generates a description for them.",
+    tags: ["React", "Node.js Express", "PostgreSQL", "Docker"],
+    isOrder: true
+  },
+  {
+    id: 17,
+    title: "Don't Become Dessert",
+    description: "A horror game created for the Brackey's Game Jam 2025.2 for the theme: 'Risk it for the Biscuit'.",
+    tags: ["Unity", "C#"],
+    isOrder: false,
+    url: "https://gustyff.itch.io/dont-become-dessert"
+  }
 ];
 
 const Projects: React.FC = () => {
@@ -148,8 +164,8 @@ const Projects: React.FC = () => {
                 <div className="flex w-full justify-between">
                   <h3 className="card-title text-white">{project.title}</h3>
                   {project.isOrder && (
-                  <Tooltip title="Available for ordering" placement="top" arrow>
-                    <span id={"project-" + project.id} data-tooltip-id={"project-" + project.id} data-tooltip-content="Available for ordering" className="flex cursor-crosshair">
+                  <Tooltip title="Available for purchase" placement="top" arrow>
+                    <span id={"project-" + project.id} data-tooltip-id={"project-" + project.id} data-tooltip-content="Available for purchase" className="flex cursor-crosshair">
                       *
                     </span>
                   </Tooltip>
@@ -166,6 +182,11 @@ const Projects: React.FC = () => {
                 {project.githubLink && (
                   <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-4">
                     GitHub
+                  </a>
+                )}
+                {project.url && (
+                  <a href={project.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-4">
+                    Visit Homepage
                   </a>
                 )}
               </div>
